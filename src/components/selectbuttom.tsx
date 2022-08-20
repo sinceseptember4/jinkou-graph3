@@ -30,20 +30,20 @@ const sell: React.CSSProperties = {
 const SelectButtom : React.FC<ChildrenDispatchProps> = ({
   buttom,
 })  => {
-  const [Data,setData] = React.useState<string[]>([]);
+  const [TodoufukenData,setTodoufukenData] = React.useState<string[]>([]);
   React.useEffect(() => { 
     {/* @ts-ignore */}
     Axios.get(`https://opendata.resas-portal.go.jp/api/v1/prefectures`,{headers: headers}).then((response) => {
 
       datas = response.data.result
-      setData(response.data.result);
+      setTodoufukenData(response.data.result);
 
     }).catch((error) => {
       alert("エラーが発生しました。"+ error)
     });
   }, []);
   return <>
-    {Data.map((data, index) => {
+    {TodoufukenData.map((data, index) => {
           return (
             <div key={index} style={sell} className="list-row">
               <input type="checkbox" name="select" onClick={() => buttom("id")}value="1"  /><p style={p} >{data}</p>
