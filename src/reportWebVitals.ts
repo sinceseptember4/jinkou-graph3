@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { ReportHandler } from 'web-vitals';
 
 const reportWebVitals = (onPerfEntry?: ReportHandler) => {
@@ -11,5 +12,5 @@ const reportWebVitals = (onPerfEntry?: ReportHandler) => {
     });
   }
 };
-
+/* eslint-disable */
 export default reportWebVitals;
