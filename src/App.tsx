@@ -1,11 +1,13 @@
 import Graph from './components/graph';
+import Title from './components/title'
 import React from "react";
 import axios from "axios";
 import { Chart as ChartJS, registerables } from 'chart.js';
 ChartJS.register(...registerables);
 
 
-const App: React.FC = ( ) => {
+/* eslint-disable */
+const App = ( ) => {
   const labels = ["1960", "1965", "1970", "1975", "1980", "1985","1990","1995","2000","2005","2010","2015","2020","2025","2030","2035","2040","2045"];
   const [Stateaxios, setStateaxios] = React.useState<number[]>();
   const [TodoufukenNameData, setTodoufukenNameData] = React.useState<string[]>([]);
@@ -41,6 +43,7 @@ interface TodoufukenData {
   }
 
 
+// 各都道府県の名前とidを取得
 React.useEffect(() => { 
   {/* @ts-ignore */}
   axios.get(`https://opendata.resas-portal.go.jp/api/v1/prefectures`,{headers: headers}).then((response :AxiosResponse<any, any>) => {
@@ -58,11 +61,12 @@ React.useEffect(() => {
   });
 }, []);
 
+//グラフに使用するデータをここで取得する
 async function getdata(){
   
   const elements = document.getElementsByName("select")as NodeListOf<HTMLElement>;
-
   let posts :never[]= [];
+
   for (let i=0; i<elements.length; i++){
       {/* @ts-ignore */}
     if (elements[i].checked){
@@ -73,7 +77,7 @@ async function getdata(){
 
   datasetbefore =[];
   for await (const v of posts) {
-  
+
     let datavalue :number[]= [];
     {/* @ts-ignore */}
     axios.get(`https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=${v}`,{headers: headers}).then((response :AxiosResponse<any, any>) => {
@@ -87,13 +91,15 @@ async function getdata(){
     }).catch((error :string) => {
       alert("エラーが発生しました。"+ error)
     });
+
     const red :number= Math.floor( Math.random() * 256 ) ;
     const bule :number= Math.floor( Math.random() * 256 ) ;
     const green :number= Math.floor( Math.random() * 256 ) ;
     const rgb = `rgb(${red}, ${bule}, ${green})`;
+    const hashdata = Stateaxios;
     const hash: { label: string; data: number[]; borderColor:string;} ={ label: TodoufukenNameData[v-1], data: datavalue, borderColor: rgb};;
     datasetbefore.push(hash);
-    
+    /* eslint-disable */
   };
 
   const graphData = {
@@ -105,9 +111,7 @@ async function getdata(){
 
 };
 
-const  buttom =  () => {
-  getdata();
-}
+
 
   const Selectstyle: React.CSSProperties = {
     display: "inline-block",
@@ -127,18 +131,16 @@ const  buttom =  () => {
     height: "30px",
     margin: "0",
   };
-
-
-
+  
   return (
     <>
-  <div style={Selectstyle}/>
+  <Title></Title>
   {TodoufukenData.map((data, index) => {
     const prefName :string= data['prefName'];
     const prefCode :number= data['prefCode'];
       return (
         <div key={index} style={sell} className="list-row">
-          <input type="checkbox" name="select" onClick={() => buttom()} value={prefCode}  /><p style={p} >{prefName}</p>
+          <input type="checkbox" name="select" onClick={() => getdata()} value={prefCode}  /><p style={p} >{prefName}</p>
         </div>
       );
   })}

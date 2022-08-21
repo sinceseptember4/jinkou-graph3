@@ -47,7 +47,10 @@
   "devDependencies": {
     "chart.js": "^3.9.1",
     "cross-env": "^7.0.3",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
     "gh-pages": "^3.2.3",
+    "prettier": "^2.7.1",
     "react-chartjs-2": "^4.3.1"
   }
 }

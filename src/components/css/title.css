@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+
+section {
+
+    height: 10em;
+    position: relative 
+}
+h1 {
+    font-family: 'Kosugi Maru', sans-serif;
+    margin: 0;
+    background: yellow;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+    }
