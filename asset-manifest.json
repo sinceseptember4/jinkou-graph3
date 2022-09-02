@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/jinkou-graph3/static/css/main.ab81dbb5.css",
-    "main.js": "/jinkou-graph3/static/js/main.563d9d31.js",
+    "main.js": "/jinkou-graph3/static/js/main.bfe08316.js",
     "static/js/787.0bb3f3d6.chunk.js": "/jinkou-graph3/static/js/787.0bb3f3d6.chunk.js",
     "index.html": "/jinkou-graph3/index.html",
     "main.ab81dbb5.css.map": "/jinkou-graph3/static/css/main.ab81dbb5.css.map",
-    "main.563d9d31.js.map": "/jinkou-graph3/static/js/main.563d9d31.js.map",
+    "main.bfe08316.js.map": "/jinkou-graph3/static/js/main.bfe08316.js.map",
     "787.0bb3f3d6.chunk.js.map": "/jinkou-graph3/static/js/787.0bb3f3d6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ab81dbb5.css",
-    "static/js/main.563d9d31.js"
+    "static/js/main.bfe08316.js"
   ]
 }
