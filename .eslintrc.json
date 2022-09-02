@@ -8,6 +8,18 @@
 		"ecmaVersion": 12,
 		"sourceType": "module"
 	},
+	"globals": {
+		"datasets": false,
+		"label": false,
+		"data": false,
+		"borderColor": false,
+		"prefCode": false,
+		"prefName": false,
+		"NodeListOf": false,
+		"Props": false,
+		"labels": false
+	},
 	"rules": {
+		"no-console": "off"
     }
 }

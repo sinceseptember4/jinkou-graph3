@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 import { useDelayedEffect } from "./useDelayedEffect";
 import { Chart as ChartJS, registerables } from 'chart.js';
 ChartJS.register(...registerables);
-/* eslint-disable */
+
 type Props = {
   data: {
     labels: string[];
@@ -34,7 +34,7 @@ const Graph = (props: Props) => {
         borderColor: string;
     }[];
   }>({labels:[],datasets:[]});
-/* eslint-disable */
+
   let graphData = props.data;
   /*
   グラフにpropsで送られるデータにラグがあるので非同期処理で遅延させてからデータを処理することが必要。
@@ -43,7 +43,7 @@ const Graph = (props: Props) => {
   */
   useDelayedEffect(() => {
       setgraphdata(graphData)
-    },[graphData],400);
+    },[graphData],500);
     
     
 
