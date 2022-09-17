@@ -1,5 +1,5 @@
-import Graph from './components/graph';
-import Title from './components/title'
+import { Graph } from './components/graph';
+import { Title } from './components/title'
 import React from "react";
 import axios from "axios";
 import { Chart as ChartJS, registerables } from 'chart.js';
@@ -64,20 +64,17 @@ React.useEffect(() => {
 //グラフに使用するデータをここで取得する
 async function getdata(){
   
-  const elements = document.getElementsByName("select") as  NodeListOf<HTMLSelectElement>;
+  const elements = document.getElementsByName("select") as NodeListOf<HTMLInputElement>;
   let posts :number[]= [];
 
   for (let i=0; i<elements.length; i++){
-    //checkbox の checked は NodeListOf<HTMLSelectElement>に入っていないのでここだけ@ts-ignoreを使用
-    // @ts-ignore
     const checked :boolean = elements[i].checked;
     if  (checked){
-      console.log(elements[i]);
-      let valuenum= Number(elements[i].value); 
+      const valuenum= Number(elements[i].value);
       posts.push(valuenum);
     }
   }
-   console.log(posts);
+  
   datasetbefore =[];
   for await (const v of posts) {
 
@@ -130,7 +127,7 @@ async function getdata(){
   
   return (
     <>
-  <Title></Title>
+  <Title/>
   {TodoufukenData.map((data, index) => {
     const prefName :string= data['prefName'];
     const prefCode :number= data['prefCode'];

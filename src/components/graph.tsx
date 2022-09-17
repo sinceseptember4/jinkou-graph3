@@ -24,7 +24,7 @@ const Width :number=  document.documentElement.clientWidth*0.9;
 const Height :number= Width*0.5;
 
 
-const Graph = (props: Props) => {
+export const Graph = (props: Props) => {
   
   const [graphdata, setgraphdata] = React.useState< {
     labels: string[];
@@ -59,5 +59,3 @@ const Graph = (props: Props) => {
   
 
 }
-
-  export default Graph;
