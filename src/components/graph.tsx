@@ -36,11 +36,7 @@ export const Graph = (props: Props) => {
   }>({labels:[],datasets:[]});
 
   let graphData = props.data;
-  /*
-  グラフにpropsで送られるデータにラグがあるので非同期処理で遅延させてからデータを処理することが必要。
-  useDelayedEffect はこちらのURLからの引用
-  https://qiita.com/stin_dev/items/e10e82650e02784e1e36
-  */
+
   useDelayedEffect(() => {
       setgraphdata(graphData)
     },[graphData],500);
