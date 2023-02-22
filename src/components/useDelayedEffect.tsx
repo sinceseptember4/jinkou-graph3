@@ -4,7 +4,8 @@ import React from "react";
   * @see https://qiita.com/stin_dev/items/e10e82650e02784e1e36/
   * @author yosuke hiraoka 
   */  
-export const useDelayedEffect = (
+ 
+  export const useDelayedEffect = (
   effect: React.EffectCallback,
   deps?: React.DependencyList,
   delaytime: number = 1000,
